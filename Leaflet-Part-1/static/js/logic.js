@@ -24,7 +24,7 @@ function get_data(features_data){
         layer.bindPopup(`<h3>${feature.properties.place}</h3><hr><p>${new Date(feature.properties.time)}<br><br>Latitude : ${feature.geometry.coordinates[1]}<br> Longitude :${feature.geometry.coordinates[0]}<br> magnitude :${feature.properties.mag}<br> Depth :${feature.geometry.coordinates[2]}</p>`);
     }
 
-        // , latlng
+        
     function point_To_Layer(feature, latlng) {
         let color;
         
@@ -36,11 +36,9 @@ function get_data(features_data){
             color: color,
             //color: "white",
             weight: feature.properties.mag,//1,
-            //feature.geometry.coordinates[2],
             fillOpacity: 1
             };
-            // lnglat = [longitude , latitude]
-            // lnglat = [feature.geometry.coordinates[0],feature.geometry.coordinates[1]]
+            
         return L.circleMarker(latlng, earthquakeMarkers);
     }
 
@@ -54,10 +52,6 @@ function get_data(features_data){
     // call function create_map
     load_map(earthquakes);
 }
-
-
-// // On change to the DOM, call update_data()
-// d3.selectAll("#selDataset").on("change", update_data);
 
 
 function load_map(earthquakes_data){
